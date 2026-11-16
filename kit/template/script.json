@@ -1,0 +1,266 @@
+[
+ {
+  "scene": "wc_hook",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "If your car goes off a bridge and into a lake...",
+    0.25
+   ],
+   [
+    "you have about sixty seconds to get out.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "IF YOUR {y:CAR} GOES OFF A BRIDGE|AND INTO A {r:LAKE}...",
+   "YOU HAVE ABOUT {r:60 SECONDS}|TO GET OUT."
+  ],
+  "fx": {
+   "booms": [
+    [
+     1,
+     0,
+     1.0
+    ]
+   ]
+  }
+ },
+ {
+  "scene": "wc_setup",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "Night. Ice on the road. You swerve...",
+    0.25
+   ],
+   [
+    "and the car hits the water nose first.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "NIGHT. {y:ICE} ON THE ROAD.|YOU SWERVE...",
+   "AND THE CAR HITS THE WATER|{r:NOSE FIRST}."
+  ]
+ },
+ {
+  "scene": "wc_float",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "For a moment, it floats.",
+    0.25
+   ],
+   [
+    "And most people waste that moment doing the wrong thing.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "FOR A MOMENT, {y:IT FLOATS}.",
+   "AND MOST PEOPLE WASTE IT|DOING THE {r:WRONG THING}."
+  ],
+  "fx": {
+   "pulse": true
+  }
+ },
+ {
+  "scene": "wc_r1",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "Rule one: seatbelt off. Right now.",
+    0.25
+   ],
+   [
+    "Then yell at everyone else to do the same.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "{y:RULE 1}: {y:SEATBELT OFF}. RIGHT NOW.",
+   "THEN YELL AT EVERYONE|TO DO THE SAME."
+  ],
+  "fx": {
+   "hit": 0.7
+  }
+ },
+ {
+  "scene": "wc_r2",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "Rule two: forget the door. The water pressure holds it shut.",
+    0.25
+   ],
+   [
+    "Open the window, while the power still works.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "{y:RULE 2}: {r:FORGET THE DOOR}.|THE WATER HOLDS IT SHUT.",
+   "OPEN THE {y:WINDOW}|WHILE THE POWER STILL WORKS."
+  ],
+  "fx": {
+   "hit": 0.7
+  }
+ },
+ {
+  "scene": "wc_r3",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "Rule three: if it won't open, break a side window, near the corner.",
+    0.25
+   ],
+   [
+    "Never the windshield. It's built not to shatter.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "{y:RULE 3}: STUCK? BREAK A {y:SIDE WINDOW},|NEAR THE CORNER.",
+   "{r:NEVER THE WINDSHIELD}.|IT'S BUILT NOT TO SHATTER."
+  ],
+  "fx": {
+   "hit": 0.7
+  }
+ },
+ {
+  "scene": "wc_kids",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "Kids in the back? They go out first.",
+    0.25
+   ],
+   [
+    "Oldest first, so they can help the little ones.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "KIDS IN THE BACK?|{y:THEY GO OUT FIRST}.",
+   "{y:OLDEST FIRST},|SO THEY CAN HELP THE LITTLE ONES."
+  ]
+ },
+ {
+  "scene": "wc_mistake",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "The deadly mistake?",
+    0.25
+   ],
+   [
+    "Grabbing your phone to call nine one one first.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "THE {r:DEADLY MISTAKE}?",
+   "GRABBING YOUR PHONE|TO {r:CALL 911} FIRST."
+  ],
+  "fx": {
+   "booms": [
+    [
+     1,
+     0,
+     1.2
+    ]
+   ]
+  }
+ },
+ {
+  "scene": "wc_why",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "By the time someone answers, the water is at your chest.",
+    0.25
+   ],
+   [
+    "Get out first. Call from the shore.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "BY THE TIME THEY ANSWER,|THE WATER IS AT {r:YOUR CHEST}.",
+   "{y:GET OUT FIRST}.|CALL FROM THE SHORE."
+  ]
+ },
+ {
+  "scene": "wc_out",
+  "say": "x",
+  "pad": 0.2,
+  "parts": [
+   [
+    "So you do it right. Window down. You climb out.",
+    0.25
+   ],
+   [
+    "You swim up and grab the roof. You made it.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "SO YOU DO IT RIGHT.|WINDOW DOWN. {y:YOU CLIMB OUT}.",
+   "YOU GRAB THE ROOF.|{y:YOU MADE IT}."
+  ]
+ },
+ {
+  "scene": "wc_twist",
+  "say": "x",
+  "pad": 0.6,
+  "parts": [
+   [
+    "Then you hear it. Knocking.",
+    0.3
+   ],
+   [
+    "From inside the trunk.",
+    0.35
+   ],
+   [
+    "But you were driving alone.",
+    0.0
+   ]
+  ],
+  "caps": [
+   "THEN YOU HEAR IT. {r:KNOCKING}.",
+   "FROM INSIDE {r:THE TRUNK}.",
+   "BUT YOU WERE {r:DRIVING ALONE}."
+  ],
+  "fx": {
+   "booms": [
+    [
+     1,
+     0,
+     1.0
+    ],
+    [
+     2,
+     0,
+     1.3
+    ]
+   ]
+  }
+ },
+ {
+  "scene": "wc_end",
+  "say": "",
+  "caps": [],
+  "hold": 4.0
+ }
+]

@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: 'Oswald'; src: url('../fonts/Oswald.ttf'); font-weight: 200 700; }
+@font-face { font-family: 'Anton'; src: url('../fonts/Anton.ttf'); }
+@font-face { font-family: 'Caveat'; src: url('../fonts/Caveat.ttf'); font-weight: 400 700; }
+html, body { margin: 0; padding: 0; background: #000; width: 1080px; height: 1920px; overflow: hidden; }
+svg { display: block; }
+</style>
+<script src="lib.js"></script>
+<script src="scenes.js"></script>
+<script src="../s1fix.js"></script>
+<script src="../s2lib.js"></script>
+<script src="../wi/wi.js"></script>
+<script src="scenes2.js"></script>
+<script src="scenes3.js"></script>
+<script src="scenes4.js"></script>
+<script src="scenes5.js"></script>
+<script src="scenes6.js"></script>
+<script src="scenes7.js"></script>
+<script src="scenes8.js"></script>
+<script src="scenes9.js"></script>
+<script src="scenes10.js"></script>
+<script src="scenes11.js"></script>
+<script src="scenes12.js"></script>
+<script src="scenes13.js"></script>
+<script src="scenes14.js"></script>
+<script src="scenes15.js"></script>
+<script src="scenes16.js"></script>
+<script src="scenes22.js"></script>
+<script src="scenes23.js"></script>
+<script src="scenes24.js"></script>
+<script src="scenes25.js"></script>
+<script src="scenes26.js"></script>
+<script src="scenes27.js"></script>
+<script src="scenes28.js"></script>
+<script src="scenes29.js"></script>
+<script src="scenes30.js"></script>
+<script src="scenes31.js"></script>
+<script src="scenes47.js"></script>
+<script src="scenes48.js"></script>
+<script src="s2fix.js"></script>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg"></svg>
+<script>
+const GLOBAL_DEFS = `<defs>
+  ${radGrad('vig', [[.55, '#000', 0], [1, '#000', 1]], .5, .5, .75)}
+  ${blurF('fgblur', 14)}${blurF('smk', 7)}${blurF('bgblur', 12)}${glowF('zglow', 6)}
+  <filter id="capsh" x="-10%" y="-40%" width="120%" height="180%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity=".55"/></filter>
+</defs>`;
+
+function capMarkup(txt) {
+  return txt.replace(/&/g, '&amp;').replace(/\{([ry]):([^}]*)\}/g, (m, c, w) =>
+    `<tspan fill="${c === 'r' ? '#ff4a3a' : '#ffcc2e'}">${w}</tspan>`);
+}
+
+window.renderAt = function (T) {
+  const TL = window.TL; const segs = TL.segments;
+  let s = segs[segs.length - 1];
+  for (const g of segs) { if (T < g.end) { s = g; break; } }
+  const start = s === segs[0] ? 0 : s.start;
+  const t = Math.max(0, T - start), d = s.end - start;
+  const r = S[s.scene](t, d, T);
+  const punch = 1 + .035 * (1 - easeOut(clamp(t / .28)));
+  const cam = (r.cam || 1) * (s.scene === 'end_card' ? 1 : punch);
+  let caption = '';
+  const c = s.caps.find(c => T >= c.start - .02 && T < c.end);
+  if (c) {
+    const k = back(seg(T, c.start - .02, c.start + .14));
+    caption = `<g transform="translate(540 1262) scale(${.82 + .18 * k})" opacity="${clamp(k * 1.5)}">
+      <text id="cap" x="0" y="0" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="70" letter-spacing="1"
+        fill="#ffffff" stroke="#111" stroke-width="11" stroke-linejoin="round" paint-order="stroke" filter="url(#capsh)">${
+        c.text.includes('|') ? c.text.split('|').map((ln, i, a) => `<tspan x="0" dy="${i === 0 ? -(a.length - 1) * 40 : 80}">${capMarkup(ln.trim())}</tspan>`).join('') : capMarkup(c.text)}</text></g>`;
+  }
+  const gx = Math.floor(rnd(Math.floor(T * 30)) * 200), gy = Math.floor(rnd(Math.floor(T * 30) + 7) * 200);
+  document.getElementById('stage').innerHTML = GLOBAL_DEFS +
+    `<g transform="translate(540 960) scale(${cam}) translate(-540 -960)">${r.svg}</g>` + caption +
+    `<image href="grain.png" x="${-gx}" y="${-gy}" width="1400" height="2300" opacity=".07" style="mix-blend-mode:overlay"/>`;
+  const capEl = document.getElementById('cap');
+  if (capEl) {
+    const w = capEl.getBBox().width;
+    if (w > 960) capEl.setAttribute('transform', `scale(${960 / w})`);
+  }
+  return s.scene;
+};
+</script>
+</body></html>
